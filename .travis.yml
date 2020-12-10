@@ -1,0 +1,19 @@
+language: generic 
+sudo: required
+services:
+  - docker
+before_install: 
+  - docker build -t franciscain9/docker-react-app -f Dockerfile.dev .
+script:
+  - docker run -e CI=true franciscain9/docker-react-app npm run test
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-3"
+  app: "docker-react-app"
+  env: "DockerReactApp-env"
+  bucket_name: "elasticbeanstalk-eu-west-3-217832211784"
+  bucket-path: "docker-react-app"
+  on:
+   branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
