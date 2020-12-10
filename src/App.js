@@ -12,7 +12,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Here's my LinkedIn account : 
+          Here's my LinkedIn account (Dev branch): 
         </a>
       </header>
     </div>
